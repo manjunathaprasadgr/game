@@ -55,6 +55,7 @@ setInterval(() => {
         gameover.style.visibility = 'visible';
         girl.classList.remove('animationgirl')
         audio2.play()
+        cross = false;
         setTimeout(() => {
             audio2.pause()
             audio1.pause()
@@ -86,6 +87,7 @@ function update(score){
     <div class="container">
         <div class="gameover">Game Over</div>
         <div class="boy" ></div>
+         <div class="ninja">WELCOME TO NINJA MANJA GAME </div>
        <div class="scorecont">Your Score:0</div>
        <div class="girl animationgirl"></div>
     </div>
