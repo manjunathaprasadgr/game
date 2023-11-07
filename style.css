@@ -84,7 +84,7 @@ body{
 }
 .ninja{
     font-size: 30px;
-    color: green;
+      color: rgb(5, 97, 5);
     font-style: inherit;
     position: relative;
     top: -160px;
