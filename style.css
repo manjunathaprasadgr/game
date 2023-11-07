@@ -1,0 +1,77 @@
+*{ 
+    margin: 0;
+    padding: 0;
+}
+body{
+    background-color: darkgreen;
+    overflow: hidden;
+}
+.container{
+    background-image: url(bg1.png);
+    background-repeat: no-repeat;
+    background-size: 100vw 100vh;
+    width: 100%;
+    height: 100vh;
+    
+}
+.boy{
+    background-image: url(./boy.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 185px;
+    height: 194px;
+    position: absolute;
+    bottom: 0;
+    left: 55px;
+
+}
+.girl{
+    background-image: url(./girl.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 185px;
+    height: 184px;
+    position: absolute;
+    bottom: 0;
+    left:46vw;
+
+    
+}
+.animateboy{
+    animation: boy 0.6s linear;
+}
+@keyframes boy{
+    0%{
+        bottom: 0;
+    }
+    50%{
+        bottom: 453px;
+    }
+    100%{
+        bottom: 0;
+    }
+}
+.animationgirl{
+
+    animation: girl 5s linear infinite;
+}
+@keyframes girl{
+    0%{
+        left: 100vw;
+    }
+ 
+    100%{
+        left: -10vw;
+    }
+}
+.gameover{
+    visibility: hidden;
+    color: rgb(231, 19, 19);
+    position: relative;
+    text-align: center;
+    top: 395px;
+    font-size: 160px;
+}
+.scorecont{
+    color: rgb(6, 37, 214);
+}
