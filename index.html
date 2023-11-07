@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+
+    <script> 
+    var score = 0;
+    var cross = true;
+    audio1 = new Audio('./bgm.mp3')
+    audio2 = new Audio('./gmover.mp3')
+
+    setTimeout(() => { 
+        audio1.play()
+    },1000)
+    document.onkeydown = function(event){
+        console.log("Key code is: ", event.keyCode);
+
+    if(event.keyCode==38){
+        boy = document.querySelector('.boy');
+        boy.classList.add('animateboy');
+        setTimeout(() => { 
+            boy.classList.remove('animateboy')},700)
+        
+    }
+    if(event.keyCode==39){
+        boy = document.querySelector('.boy');
+        boyX = parseInt(window.getComputedStyle(boy,null).getPropertyValue('left'));
+        boy.style.left = boyX + 120 + 'px';
+    }
+    if(event.keyCode==37){
+        boy = document.querySelector('.boy');
+        boyX = parseInt(window.getComputedStyle(boy,null).getPropertyValue('left'));
+        boy.style.left = (boyX - 120) + 'px';
+    }
+}
+setInterval(() => {
+    boy = document.querySelector('.boy');
+    gameover = document.querySelector('.gameover');
+    girl = document.querySelector('.girl');
+
+    bx = parseInt(window.getComputedStyle(boy,null).getPropertyValue('left'));
+    by = parseInt(window.getComputedStyle(boy,null).getPropertyValue('top'));
+
+
+    gx = parseInt(window.getComputedStyle(girl,null).getPropertyValue('left'));
+    gy = parseInt(window.getComputedStyle(girl,null).getPropertyValue('top'));
+    
+    offsetX = Math.abs(bx-gx);
+    offsetY = Math.abs(by-gy);
+    
+    console.log(offsetX,offsetY)
+    if(offsetX<100 && offsetY<40){
+        gameover.style.visibility = 'visible';
+        girl.classList.remove('animationgirl')
+        audio2.play()
+        setTimeout(() => {
+            audio2.pause()
+            audio1.pause()
+        },1000)
+    }
+    else if(offsetX < 145 && cross){
+        score += 1;
+        update(score);
+        cross=false;
+        setTimeout(() => {
+            cross=true;
+        },1000);
+        setTimeout(() => {
+           newDur = parseFloat(window.getComputedStyle(girl,null).getPropertyValue('animation-duration'));
+             newDur -= 0.1;
+            console.log("durhghggggjghfyyrrr",newDur)
+            girl.style.animationDuration = newDur + 's';
+        } , 500)
+    }
+},10);
+function update(score){
+    document.querySelector(".scorecont").innerHTML = "YOUR SCORE: " + score 
+}
+    
+    </script>
+    <title>ninja manja</title>
+</head>
+<body>
+    <div class="container">
+        <div class="gameover">Game Over</div>
+        <div class="boy" ></div>
+       <div class="scorecont">Your Score:0</div>
+       <div class="girl animationgirl"></div>
+    </div>
+</body>
+</html>
+
