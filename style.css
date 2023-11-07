@@ -73,5 +73,20 @@ body{
     font-size: 160px;
 }
 .scorecont{
-    color: rgb(6, 37, 214);
+    color: rgb(221, 243, 20);
+    border-style: ridge;
+    font-size: 30px;
+    position: absolute;
+    top: 165px;
+    right: 30px;
+    background-color: black;
+    border-radius: 18px;
+}
+.ninja{
+    font-size: 30px;
+    color: rgb(4, 94, 19);
+    font-style: inherit;
+    position: relative;
+    top: -160px;
+    text-align: center;
 }
